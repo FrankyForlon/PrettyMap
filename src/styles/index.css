@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bloom-black: #0a0a0f;
+  --bloom-dark: #0d0d14;
+  --bloom-panel: #12121c;
+  --bloom-border: #1a1a2e;
+  --bloom-teal: #00d4aa;
+  --bloom-green: #10b981;
+  --bloom-purple: #8b5cf6;
+  --bloom-pink: #ec4899;
+  --bloom-yellow: #eab308;
+  --bloom-red: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bloom-black);
+  color: #e2e8f0;
+  font-family: 'Sora', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bloom-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bloom-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bloom-teal);
+}
+
+/* Frosted glass panel */
+@layer components {
+  .glass-panel {
+    @apply bg-bloom-panel/80 backdrop-blur-md border border-bloom-border/50 rounded-xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+
+  .text-glow-teal {
+    text-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+
+  .btn-primary {
+    @apply px-6 py-2.5 bg-bloom-teal text-bloom-black font-semibold rounded-lg
+           hover:bg-bloom-teal/90 transition-all duration-300;
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 170, 0.5);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 border border-bloom-border text-gray-300 rounded-lg
+           hover:border-bloom-teal hover:text-bloom-teal transition-all duration-300;
+  }
+
+  .tag-pill {
+    @apply px-2.5 py-0.5 text-xs rounded-full bg-bloom-dark border border-bloom-border text-gray-400;
+  }
+}
+
+/* Google Maps dark styling override */
+.gm-style {
+  background: var(--bloom-black) !important;
+}
+
+/* Hero section gradient overlays */
+.hero-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 15, 0) 0%,
+    rgba(10, 10, 15, 0.6) 50%,
+    rgba(10, 10, 15, 1) 100%
+  );
+}
